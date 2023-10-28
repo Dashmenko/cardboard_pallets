@@ -1,0 +1,409 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 0;
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+}
+*:focus {
+  outline: 0;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.nav {
+  margin-right: 20px;
+}
+
+.nav ul {
+  list-style: none;
+  position: relative;
+  margin-right: 40px;
+  display: inline-table;
+}
+
+.nav ul li {
+  transition: all 0.2s ease-in-out;
+}
+
+.nav ul li:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.nav ul li:hover > ul {
+  display: block;
+}
+
+.nav ul li {
+  float: left;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav ul li a {
+  padding: 20px 10px 10px;
+}
+
+.nav ul ul {
+  display: none;
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  box-shadow: -3px 3px 10px -2px rgba(0, 0, 0, 0.1);
+}
+
+.nav ul ul li {
+  background: rgba(0, 0, 0, 0.2);
+  float: none;
+  position: relative;
+}
+
+.nav ul ul li a {
+  padding-top: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mainNav {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1b262a;
+  text-transform: uppercase;
+  padding: 0 40px;
+}
+@media screen and (max-width: 799px) {
+  .mainNav {
+    padding: 0 20px;
+  }
+}
+.mainNav__logo .mainNav__logo-img {
+  width: 50%;
+}
+.mainNav__links {
+  display: flex;
+}
+@media screen and (max-width: 799px) {
+  .mainNav__links {
+    display: none;
+  }
+}
+.mainNav__link {
+  display: flex;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 2px 4px;
+  transform: translateY(0px);
+}
+.mainNav__link:hover {
+  transform: translateY(-5px);
+}
+
+.mainHeading {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 0 40px;
+  background-image: linear-gradient(to top, #bebbba 0%, #8d8480 100%);
+}
+@media screen and (max-width: 799px) {
+  .mainHeading {
+    padding: 0 20px;
+  }
+}
+.mainHeading__content {
+  width: 1220px;
+  min-height: 600px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+@media screen and (max-width: 799px) {
+  .mainHeading__content {
+    min-height: 500px;
+  }
+}
+.mainHeading__text {
+  z-index: 1;
+  color: #1b262a;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 40px;
+  max-width: 620px;
+  margin-top: 100px;
+  width: 70%;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  animation: text 0.8s 0.6s ease backwards;
+  position: relative;
+}
+.mainHeading__text:before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: line 0.8s 0.6s ease backwards;
+}
+@keyframes line {
+  0% {
+    right: 0;
+    width: 100%;
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 799px) {
+  .mainHeading__text {
+    padding: 20px;
+    margin: 90px 0 40px 0;
+  }
+}
+@keyframes text {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+}
+.mainHeading__preTitle {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  color: #1b262a;
+}
+.mainHeading__title {
+  text-transform: uppercase;
+  font-weight: 200;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  font-size: 40px;
+  color: #1b262a;
+}
+@media screen and (max-width: 799px) {
+  .mainHeading__title {
+    margin-bottom: 16px;
+    font-size: 28px;
+  }
+}
+.mainHeading__description {
+  letter-spacing: 0.5px;
+  font-size: 16px;
+  line-height: 26px;
+}
+@media screen and (max-width: 799px) {
+  .mainHeading__description {
+    font-size: 14px;
+  }
+}
+.mainHeading__image {
+  perspective: 150em;
+  right: 0;
+  max-width: 600px;
+  width: 60%;
+  height: 600px;
+  transform: translatey(100px);
+  position: absolute;
+  overflow: hidden;
+  transition: all 0.6s ease;
+  backface-visibility: hidden;
+  right: 90px;
+  z-index: -1;
+  animation: image 0.6s 0.2s ease backwards;
+}
+@media screen and (max-width: 799px) {
+  .mainHeading__image {
+    height: 480px;
+    width: 70%;
+    transform: translatey(80px);
+    right: -6%;
+  }
+}
+@keyframes image {
+  0% {
+    opacity: 0;
+    transform: translatey(200px);
+  }
+}
+.mainHeading__image:before, .mainHeading__image:after {
+  content: "";
+  z-index: 5;
+  position: absolute;
+  height: 100%;
+  top: 100%;
+  background-image: linear-gradient(to top, #bebbba 0%, #8d8480 100%);
+  opacity: 1;
+  left: 0;
+}
+.mainHeading__image:before {
+  animation: imageBefore 1s 0.2s ease backwards;
+  width: 100%;
+}
+@keyframes imageBefore {
+  0% {
+    height: 100%;
+    top: 0;
+  }
+}
+.mainHeading__image:after {
+  background-image: linear-gradient(to top, #bebbba 0%, #8d8480 100%);
+  height: 100%;
+  top: 0;
+  opacity: 0.2;
+}
+.mainHeading__image img {
+  width: 100%;
+  height: 100%;
+}
+
+.cta {
+  padding: 16px 32px;
+  color: #1b262a;
+  background-color: transparent;
+  border: 1px solid rgba(27, 38, 42, 0.4);
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-top: 32px;
+  cursor: pointer;
+  box-shadow: inset 0px 0px 0px rgba(27, 38, 42, 0.2);
+  transition: all 0.4s ease;
+}
+.cta:hover {
+  border: 1px solid rgba(27, 38, 42, 0.1);
+  box-shadow: inset 0px -80px 0px rgba(27, 38, 42, 0.1);
+  transform: translateY(-5px);
+}
+@media screen and (max-width: 799px) {
+  .cta {
+    margin-top: 16px;
+  }
+}
+
+.card {
+  position: relative;
+  perspective: 150em;
+  height: 600px;
+  width: 600px;
+}
+.card__side {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 600px;
+  width: 600px;
+  backface-visibility: hidden;
+  transition: all 0.6s ease;
+  box-shadow: 1em 1em 2em rgba(0, 0, 0, 0.2);
+}
+.card__side--back {
+  transform: rotateY(180deg);
+}
+.card__side--back-1 {
+  -moz-filter: blur(7px);
+  -o-filter: blur(7px);
+  -ms-filter: blur(7px);
+  filter: blur(7px);
+}
+.card:hover .card__side--front {
+  transform: rotateY(-180deg);
+}
+.card:hover .card__side--back {
+  transform: rotate(0);
+}
+.card__description {
+  text-align: center;
+  position: absolute;
+  z-index: 40;
+}
+.card__description .topic-text {
+  width: 70%;
+  margin: 10px auto;
+  font-size: 23px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.25);
+  font-family: "Raleway", sans-serif;
+  color: #1b262a;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: rgba(0, 0, 0, 0.5) 5px 2px 5px;
+}
+.card__description p {
+  width: 70%;
+  font-family: "Raleway", sans-serif;
+  color: #1b262a;
+  font-size: 18px;
+  text-transform: none;
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 18px;
+  margin: 20px auto 0;
+}
+.card__description .input-box {
+  width: 100%;
+  height: 50px;
+  margin: 20px auto;
+}
+.card__description .input-box input,
+.card__description .input-box textarea {
+  height: 100%;
+  width: 70%;
+  border: none;
+  border-radius: 5px;
+  background: rgba(240, 241, 248, 0.5);
+  padding: 0 20px;
+  margin: 10px 0;
+  resize: none;
+  color: #1b262a;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+}
+.card__description .input-box textarea {
+  resize: none;
+  padding: 20px;
+  color: #1b262a;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+}
+.card__description .message-box {
+  min-height: 110px;
+}
+.card__description input[type=button].cta {
+  padding: 16px 32px;
+  color: #1b262a;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(27, 38, 42, 0.4);
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-top: 32px;
+  cursor: pointer;
+  box-shadow: inset 0px 0px 0px rgba(27, 38, 42, 0.4);
+  transition: all 0.4s ease;
+}
+.card__description input[type=button].cta:hover {
+  border: 1px solid rgba(27, 38, 42, 0.3);
+  box-shadow: inset 0px -80px 0px rgba(27, 38, 42, 0.3);
+  transform: translateY(-5px);
+}
+@media screen and (max-width: 799px) {
+  .card__description input[type=button].cta {
+    margin-top: 16px;
+  }
+}/*# sourceMappingURL=style.css.map */

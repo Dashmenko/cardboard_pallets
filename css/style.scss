@@ -1,0 +1,456 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap");
+
+$font-01: "Raleway", sans-serif;
+
+$gradient-02: linear-gradient(135deg, #fcfcf7 0%, #ecdcab 100%);
+$gradient-01: linear-gradient(to top, #bebbba 0%, #8d8480 100%);
+
+$m-01: #1b262a;
+
+@mixin sm {
+  @media screen and (max-width: 799px) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 0;
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+body {
+  font-family: $font-01;
+}
+
+.nav {
+  margin-right: 20px;
+}
+
+.nav ul {
+  list-style: none;
+  position: relative;
+  margin-right: 40px;
+  display: inline-table;
+}
+
+.nav ul li {
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.nav ul li:hover {
+  background: rgba(0, 0, 0, .35);
+}
+
+.nav ul li:hover>ul {
+  display: block;
+}
+
+.nav ul li {
+  float: left;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.nav ul li a {
+  padding: 20px 10px 10px;
+}
+
+.nav ul ul {
+  display: none;
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  box-shadow: -3px 3px 10px -2px rgba(0, 0, 0, .1);
+}
+
+.nav ul ul li {
+  background: rgba(0, 0, 0, .2);
+  float: none;
+  position: relative;
+}
+
+.nav ul ul li a {
+  padding-top: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
+}
+
+.mainNav {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $m-01;
+  text-transform: uppercase;
+  padding: 0 40px;
+
+  @include sm {
+    padding: 0 20px;
+  }
+
+  &__logo {
+    .mainNav__logo-img {
+      width: 50%;
+    }
+  }
+
+  &__links {
+    display: flex;
+
+    @include sm {
+      display: none;
+    }
+  }
+
+  &__link {
+    display: flex;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 2px 4px;
+    transform: translateY(0px);
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+}
+
+.mainHeading {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 0 40px;
+  background-image: $gradient-01;
+
+  @include sm {
+    padding: 0 20px;
+  }
+
+  &__content {
+    width: 1220px;
+    min-height: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    @include sm {
+      min-height: 500px;
+    }
+  }
+
+  &__text {
+    z-index: 1;
+    color: $m-01;
+    background-color: rgba(white, 0.2);
+    padding: 40px;
+    max-width: 620px;
+    margin-top: 100px;
+    width: 70%;
+    backdrop-filter: blur(8px);
+    animation: text 0.8s 0.6s ease backwards;
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 100%;
+      top: 0;
+      left: 0;
+      animation: line 0.8s 0.6s ease backwards;
+
+      @keyframes line {
+        0% {
+          right: 0;
+          width: 100%;
+          opacity: 0;
+        }
+      }
+    }
+
+    @include sm {
+      padding: 20px;
+      margin: 90px 0 40px 0;
+    }
+
+    @keyframes text {
+      0% {
+        opacity: 0;
+        transform: translateX(200px);
+      }
+    }
+  }
+
+  &__preTitle {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    color: $m-01;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    font-size: 40px;
+    color: $m-01;
+
+    @include sm {
+      margin-bottom: 16px;
+      font-size: 28px;
+    }
+  }
+
+  &__description {
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    line-height: 26px;
+
+    @include sm {
+      font-size: 14px;
+    }
+  }
+
+  &__image {
+    perspective: 150em;
+    right: 0;
+    max-width: 600px;
+    width: 60%;
+    height: 600px;
+    transform: translatey(100px);
+    position: absolute;
+    overflow: hidden;
+    transition: all 0.6s ease;
+    backface-visibility: hidden;
+    right: 90px;
+    z-index: -1;
+    animation: image 0.6s 0.2s ease backwards;
+
+    @include sm {
+      height: 480px;
+      width: 70%;
+      transform: translatey(80px);
+      right: -6%;
+    }
+
+    @keyframes image {
+      0% {
+        opacity: 0;
+        transform: translatey(200px);
+      }
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      z-index: 5;
+      position: absolute;
+      height: 100%;
+      top: 100%;
+      background-image: $gradient-01;
+      opacity: 1;
+      left: 0;
+    }
+
+    &:before {
+      animation: imageBefore 1s 0.2s ease backwards;
+      width: 100%;
+
+      @keyframes imageBefore {
+        0% {
+          height: 100%;
+          top: 0;
+        }
+      }
+    }
+
+    &:after {
+      background-image: $gradient-01;
+      height: 100%;
+      top: 0;
+      opacity: 0.2;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.cta {
+  padding: 16px 32px;
+  color: $m-01;
+  background-color: transparent;
+  border: 1px solid rgba($m-01, 0.4);
+  font-family: $font-01;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-top: 32px;
+  cursor: pointer;
+  box-shadow: inset 0px 0px 0px rgba($m-01, 0.2);
+  transition: all 0.4s ease;
+
+  &:hover {
+    border: 1px solid rgba($m-01, 0.1);
+    box-shadow: inset 0px -80px 0px rgba($m-01, 0.1);
+    transform: translateY(-5px);
+  }
+
+  @include sm {
+    margin-top: 16px;
+  }
+}
+
+.card {
+  position: relative;
+  perspective: 150em;
+  height: 600px;
+  width: 600px;
+
+  &__side {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 600px;
+    width: 600px;
+    backface-visibility: hidden;
+    transition: all 0.6s ease;
+    box-shadow: 1em 1em 2em rgba(0, 0, 0, 0.2);
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        -webkit-filter: blur(7px);
+        -moz-filter: blur(7px);
+        -o-filter: blur(7px);
+        -ms-filter: blur(7px);
+        filter: blur(7px);
+      }
+    }
+
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotate(0);
+  }
+
+  &__description {
+    text-align: center;
+    position: absolute;
+    z-index: 40;
+
+    .topic-text {
+      width: 70%;
+      margin: 10px auto;
+      font-size: 23px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.25);
+      font-family: $font-01;
+      color: $m-01;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: rgba(0, 0, 0, 0.5) 5px 2px 5px;
+    }
+
+    p {
+      width: 70%;
+      font-family: $font-01;
+      color: $m-01;
+      font-size: 18px;
+      text-transform: none;
+      letter-spacing: 1px;
+      font-weight: 400;
+      font-size: 18px;
+      margin: 20px auto 0;
+    }
+
+    .input-box {
+      width: 100%;
+      height: 50px;
+      margin: 20px auto;
+    }
+
+    .input-box input,
+    .input-box textarea {
+      height: 100%;
+      width: 70%;
+      border: none;
+      border-radius: 5px;
+      background: rgb(240, 241, 248, 0.5);
+      padding: 0 20px;
+      margin: 10px 0;
+      resize: none;
+      color: $m-01;
+      font-family: $font-01;
+      font-weight: 600;
+    }
+
+    .input-box textarea {
+      resize: none;
+      padding: 20px;
+      color: $m-01;
+      font-family: $font-01;
+      font-weight: 600;
+    }
+
+    .message-box {
+      min-height: 110px;
+    }
+
+    input[type="button"].cta {
+      padding: 16px 32px;
+      color: $m-01;
+      background-color: rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba($m-01, 0.4);
+      font-family: $font-01;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-top: 32px;
+      cursor: pointer;
+      box-shadow: inset 0px 0px 0px rgba($m-01, 0.4);
+      transition: all 0.4s ease;
+
+      &:hover {
+        border: 1px solid rgba($m-01, 0.3);
+        box-shadow: inset 0px -80px 0px rgba($m-01, 0.3);
+        transform: translateY(-5px);
+      }
+
+      @include sm {
+        margin-top: 16px;
+      }
+    }
+  }
+}
